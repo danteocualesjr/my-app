@@ -16,7 +16,7 @@ const App = () => {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Menu className="h-6 w-6 text-gray-500" />
-              <h1 className="ml-4 text-xl font-semibold text-gray-800">TaskMaster</h1>
+              <h1 className="ml-4 text-xl font-semibold text-gray-800">Dante's TaskMaster</h1>
             </div>
             <div className="flex items-center space-x-4">
               <div className="relative">
