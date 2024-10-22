@@ -22,10 +22,6 @@ function App() {
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#links">Links</a></li>
-            <li><a href="#books">Books</a></li>
-            <li><a href="#essays">Essays</a></li>
-            <li><a href="#tech">Tech</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
