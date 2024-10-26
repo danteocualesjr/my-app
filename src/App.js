@@ -71,12 +71,14 @@ const theme = createTheme({
 });
 
 function App() {
+  // Sample tasks data
   const tasks = [
     { id: 1, title: 'Design new landing page', status: 'In Progress', priority: 'High', dueDate: 'Oct 28', assignee: 'John Doe' },
     { id: 2, title: 'Update user documentation', status: 'Pending', priority: 'Medium', dueDate: 'Oct 30', assignee: 'Jane Smith' },
     { id: 3, title: 'Fix navigation bugs', status: 'Completed', priority: 'High', dueDate: 'Oct 27', assignee: 'Mike Johnson' },
   ];
 
+  // Function to determine priority color
   const getPriorityColor = (priority) => {
     switch (priority) {
       case 'High': return 'error';
@@ -85,6 +87,7 @@ function App() {
     }
   };
 
+  // Function to determine status color
   const getStatusColor = (status) => {
     switch (status) {
       case 'Completed': return 'success';
@@ -97,8 +100,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+        {/* App Bar */}
         <AppBar position="static" color="inherit" elevation={0} sx={{ borderBottom: '1px solid #e2e8f0' }}>
           <Toolbar>
+            {/* Logo and App Title */}
             <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
               <AssignmentIcon sx={{ color: 'primary.main', mr: 2 }} />
               <Typography variant="h6" component="div" sx={{ color: 'text.primary' }}>
@@ -106,6 +111,7 @@ function App() {
               </Typography>
             </Box>
             
+            {/* App Bar Icons */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <IconButton>
                 <SearchIcon />
@@ -120,7 +126,9 @@ function App() {
           </Toolbar>
         </AppBar>
 
+        {/* Main Content */}
         <Container maxWidth="lg" sx={{ mt: 6, mb: 8 }}>
+          {/* Header */}
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
             <Box>
               <Typography variant="h4" sx={{ color: 'text.primary', mb: 1 }}>
@@ -130,6 +138,7 @@ function App() {
                 Track and manage your daily tasks
               </Typography>
             </Box>
+            {/* Add New Task Button */}
             <Button 
               variant="contained" 
               startIcon={<AddIcon />}
@@ -146,6 +155,7 @@ function App() {
             </Button>
           </Box>
 
+          {/* Task List */}
           <Box sx={{ mt: 4 }}>
             {tasks.map((task) => (
               <Card 
@@ -162,10 +172,13 @@ function App() {
                 <CardContent sx={{ p: 3 }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <Box sx={{ flex: 1 }}>
+                      {/* Task Title */}
                       <Typography variant="h6" sx={{ mb: 2 }}>
                         {task.title}
                       </Typography>
+                      {/* Task Details */}
                       <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap' }}>
+                        {/* Status Chip */}
                         <Chip 
                           icon={<FiberManualRecordIcon sx={{ fontSize: '0.8rem !important' }} />}
                           label={task.status}
@@ -173,12 +186,14 @@ function App() {
                           color={getStatusColor(task.status)}
                           sx={{ fontWeight: 500 }}
                         />
+                        {/* Priority Chip */}
                         <Chip 
                           label={task.priority}
                           size="small"
                           color={getPriorityColor(task.priority)}
                           sx={{ fontWeight: 500 }}
                         />
+                        {/* Due Date */}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
                           <DateRangeIcon sx={{ fontSize: 18 }} />
                           <Typography variant="body2">
@@ -186,11 +201,13 @@ function App() {
                           </Typography>
                         </Box>
                         <Divider orientation="vertical" flexItem />
+                        {/* Assignee */}
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                           {task.assignee}
                         </Typography>
                       </Box>
                     </Box>
+                    {/* More Options Button */}
                     <IconButton size="small">
                       <MoreVertIcon />
                     </IconButton>
@@ -201,6 +218,7 @@ function App() {
           </Box>
         </Container>
 
+        {/* Floating Action Button */}
         <Fab 
           color="primary" 
           aria-label="add"
